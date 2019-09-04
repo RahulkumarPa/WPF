@@ -1,0 +1,139 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab03"
+        mc:Ignorable="d"
+        Title="IncInc Payroll v1.0" Height="580" Width="620" MinHeight="560" MinWidth="610"  
+        ResizeMode="CanResizeWithGrip" Icon="Resources/IncIncLogo 48x48.ico"
+       WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"></ColumnDefinition>
+            <ColumnDefinition Width="78*"></ColumnDefinition>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*"></RowDefinition>
+            <RowDefinition/>
+            <RowDefinition Height="0"></RowDefinition>
+            <RowDefinition Height="60.8"/>
+        </Grid.RowDefinitions>
+
+        <TabControl x:Name="tbcNavigation"  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,-0.4,0.6">
+            <TabItem x:Name="tbiPayrollEntry" Header="_Payroll Entry" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="12*"></ColumnDefinition>
+                        <ColumnDefinition Width="60*"></ColumnDefinition>
+                        <ColumnDefinition Width="78*"></ColumnDefinition>
+                        <ColumnDefinition Width="12*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="8*"></RowDefinition>
+                        <RowDefinition Height="94*"></RowDefinition>
+                        <RowDefinition Height="102*"></RowDefinition>
+                        <RowDefinition Height="101*"></RowDefinition>
+                        <RowDefinition Height="108*"></RowDefinition>
+                        <RowDefinition Height="6"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="1" Grid.Column="1"  x:Name="lblWorkerName" ToolTip="Ask user to enter Name" Content="Worker _Name:" Target="{Binding ElementName=txtWorkerName}" TabIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="74,37.8,56.6,30.6" Height="26" Width="87" />
+                    <TextBox Grid.Row="1" Grid.Column="2" x:Name="txtWorkerName" ToolTip="User have to enter name for calculate the Pay" TabIndex="2" Height="23" Margin="21.4,41.8,61.8,29.6" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text=" "  Width="200"/>
+                    <Label   Grid.Column="2" x:Name="lblError_Name" ToolTip="Display the error" Content="" Foreground="Red" HorizontalAlignment="Left" Margin="196.4,23.8,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.403,1.212"  Height="23" Width="46" />
+
+
+                    <Label  Grid.Column="1" Grid.Row="2" x:Name="labPiecesProduced" ToolTip="Ask user to enter number of message send " Content="Message Sent:" Target="{Binding ElementName=txtPiecesProduced}" TabIndex="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="61,41.4,56.6,35"  Height="26" Width="100"  />
+                    <TextBox Grid.Row="2" Grid.Column="2" x:Name="txtPiecesProduced" ToolTip="Allow user to enter number of messages send by user" TabIndex="4" HorizontalAlignment="Center" VerticalAlignment="Center" Height="23" Margin="21.4,44.4,61.8,35"  TextWrapping="Wrap" Text=" "  Width="200"/>
+                    <Label   Grid.Column="2" x:Name="lblError_Value" ToolTip="Display the error" Content="" Foreground="Red" HorizontalAlignment="Left" Margin="196.4,24.4,0,0" Grid.Row="2" VerticalAlignment="Top" RenderTransformOrigin="0.403,1.212"  Height="23" Width="46" />
+
+
+                    <Label  Grid.Row="3" Grid.Column="1" x:Name="lblTotalPay" ToolTip="Indicate how much employee get amount" Content="Total Pay:" TabIndex="5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="88,32,69.6,44.6" Height="25" Width="60" />
+                    <Label  Grid.Row="3"   Grid.Column="2" x:Name="lblPay" Content=" "  ToolTip="It display the pay amount for the employee" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="85.4,33,77.8,42.6"  Width="120" Height="26" />
+
+                    <Button  Grid.Column="1" Grid.Row="4" x:Name="btnCalculatedPay" Content="_Calculate Pay" ToolTip="To calculate the Payable amount for the employee"  TabIndex="6" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="62,50.4,68.6,37.6" Width="87"  Height="20" />
+                    <Button  Grid.Column="2" Grid.Row="4" x:Name="btnClear" Content="_Reset"  ToolTip="To clear the all details of employee" TabIndex="7" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="96.4,50.4,111.8,37.6" Width="75"  Height="20" RenderTransformOrigin="0.179,0.446" />
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tbiSummary" Header="_Summary" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="22*"></ColumnDefinition>
+                        <ColumnDefinition Width="71*"></ColumnDefinition>
+                        <ColumnDefinition Width="71*"></ColumnDefinition>
+                        <ColumnDefinition Width="22*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="6*"></RowDefinition>
+                        <RowDefinition Height="69*"></RowDefinition>
+                        <RowDefinition Height="69*"></RowDefinition>
+                        <RowDefinition Height="69*"></RowDefinition>
+                        <RowDefinition Height="69"></RowDefinition>
+                        <RowDefinition Height="6*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="lblNumberOfWorkers" Content="Number of Workers:" Grid.Column="1" Grid.Row="1" ToolTip="Direct user to Number of Workers" TabIndex="0" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="12.8,7.2,0,0"/>
+                    <Label x:Name="lblNumberOfWorkersDisplay" Content=" " Grid.Column="2" Grid.Row="1" ToolTip="Display Number Of Worker from class PieceeorkWorker" TabIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="14.8,16.6,22.4,9.6" Width="98" Height="25"/>
+
+                    <Label x:Name="lblTotalMessages" Content="Total Messages:" Grid.Column="1" Grid.Row="2" ToolTip="Direct user to Total Number of Messages" TabIndex="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="36.8,0.6,0,0"  />
+                    <Label x:Name="lblTotalMessagesDisplay" Content=" " Grid.Column="2" Grid.Row="2" ToolTip="Display Number Of TotalMesages from class PieceeorkWorker" TabIndex="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="14.8,13.4,22.4,12.6" RenderTransformOrigin="-3.376,0.593" Width="98"  />
+
+                    <Label x:Name="lblTotalPaySummary" Content="Total Pay:" Grid.Column="1"  Grid.Row="3" ToolTip="Direct user to TotalPay" TabIndex="4" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="70.8,1.8,0,0"/>
+                    <Label x:Name="lblTotalPayDisplay" Content=" " Grid.Column="2"  Grid.Row="3" ToolTip="Display TotalPay from class PieceeorkWorker" TabIndex="5" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="14.8,17.4,22.4,15.8" Width="98"/>
+
+                    <Label x:Name="lblAveragePay" Content=" Average Pay:" Grid.Column="1" Grid.Row="4" ToolTip="Direct user to AveragePay" TabIndex="6" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="52,1.2,1.6,16.6" Height="27" RenderTransformOrigin="0.509,0.749" Width="80"  />
+                    <Label x:Name="lblAveragePayDisplay" Content=" " Grid.Column="2" Grid.Row="4" ToolTip="Display AveragePay class PieceeorkWorker" TabIndex="7" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15.8,1.2,22.4,15.8" Height="27" RenderTransformOrigin="0.509,0.749" Width="97"  />
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tbiEmployeeList" Header="Employee _List">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="98*"></RowDefinition>
+                        <RowDefinition Height="182*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <DataGrid x:Name="dgWorkerGrid" AutoGenerateColumns="True" CanUserSortColumns="False" ToolTip="Display all data from database"  CanUserAddRows="False" CanUserResizeRows="False" TabIndex="4" Grid.Column="0" Grid.Row="0" Margin="0,0,0,0.2"/>
+                    <Grid Grid.Column="0" Grid.Row="1" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="450"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10*"></RowDefinition>
+                            <RowDefinition Height="10*"></RowDefinition>
+                            <RowDefinition Height="10*"></RowDefinition>
+                            <RowDefinition Height="10*"></RowDefinition>
+                            <RowDefinition Height="10*"></RowDefinition>
+                            <RowDefinition Height="10*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label x:Name="lblEmployeeIdPrompt" Content="_ID:" ToolTip="Mention user ID" HorizontalAlignment="Left" Width="169" HorizontalContentAlignment="Right" RenderTransformOrigin="0.541,0.023" Margin="21,0,0,11.6" FontSize="17" VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="0"/>
+                        <TextBox x:Name="txtEmployeeIDPrompt"  HorizontalAlignment="Left" Height="37" TextWrapping="Wrap" VerticalAlignment="Top" Width="306"  ToolTip="Shows Employee Id." Background="{x:Null}" BorderBrush="Black" Margin="10,4,0,0" TabIndex="0" Grid.Column="1" Grid.Row="0" IsEnabled="False"/>
+
+                        <Label x:Name="lblFirstNamePrompt" Content="_First Name:" ToolTip="Mention user FirstName" HorizontalAlignment="Left" Width="169" HorizontalContentAlignment="Right" RenderTransformOrigin="0.541,0.023" Margin="21,1.4,0,4.2" FontSize="17" VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="1"/>
+                        <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="37" TextWrapping="Wrap" VerticalAlignment="Top" Width="306"  ToolTip="Shows Employee First Name." Background="{x:Null}" BorderBrush="Black" Margin="10,0.4,0,0" TabIndex="1" Grid.Column="1" IsEnabled="False" Grid.Row="1"/>
+
+                        <Label x:Name="lblLastNamePrompt" Content="_Last Name:"  ToolTip="Mention user LastName" HorizontalAlignment="Left" Width="169" HorizontalContentAlignment="Right" RenderTransformOrigin="0.541,0.023" Margin="21,45.4,0,8.8" FontSize="17" VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2"/>
+                        <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="37" TextWrapping="Wrap" VerticalAlignment="Top" Width="306"  ToolTip="Shows Employee Last Name." Background="{x:Null}" BorderBrush="Black" Margin="10,45.4,0,0" TabIndex="2" Grid.Column="1" Grid.Row="1" IsEnabled="False" Grid.RowSpan="2"/>
+
+                        <Label x:Name="lblEmployeeTotalMessagePrompt" Content="_Messages:" ToolTip="Mention user's number of Message send" HorizontalAlignment="Left" Width="169" HorizontalContentAlignment="Right" RenderTransformOrigin="0.541,0.023" Margin="21,5.2,0,2.4" FontSize="17" VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="3"/>
+                        <TextBox x:Name="txtMessages" HorizontalAlignment="Left" Height="37" TextWrapping="Wrap" VerticalAlignment="Top" Width="306"  ToolTip="Shows Employee's number of message." Background="{x:Null}" BorderBrush="Black" Margin="10,5.2,0,0" TabIndex="3" Grid.Column="1" Grid.Row="3" IsEnabled="False"/>
+
+                        <Label x:Name="lblEmployeeTotalPayPrompt" Content="_Pay:" ToolTip="Mention user's Pay" HorizontalAlignment="Left" Width="169" HorizontalContentAlignment="Right" RenderTransformOrigin="0.541,0.023" Margin="21,2.6,0,7.2" FontSize="17" VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="4"/>
+                        <TextBox x:Name="txtTotalPay" HorizontalAlignment="Left" Height="37" TextWrapping="Wrap" VerticalAlignment="Top" Width="306"  ToolTip="Shows Employee's Pay" Background="{x:Null}" BorderBrush="Black" Margin="10,2.8,0,0" TabIndex="4" Grid.Column="1" Grid.Row="4" IsEnabled="False"/>
+
+                        <Label x:Name="lblEmployeeEntryDatePrompt" Content="_Entry Date:" ToolTip="Mention user EntryDate" HorizontalAlignment="Left" Width="169" HorizontalContentAlignment="Right" RenderTransformOrigin="0.541,0.023" Margin="21,44.6,0,9.8" FontSize="17" VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="4" Grid.RowSpan="2"/>
+                        <TextBox x:Name="txtEntryDate" HorizontalAlignment="Left" Height="37" TextWrapping="Wrap" VerticalAlignment="Top" Width="306"  ToolTip="Shows Employee Entry Date." Background="{x:Null}" BorderBrush="Black" Margin="10,0.2,0,0" TabIndex="5" Grid.Column="1" Grid.Row="5" IsEnabled="False"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+
+
+        </TabControl>
+        <Button x:Name="btnExit" Content="_Exit" HorizontalAlignment="Left" Margin="193,4.4,0,37.4" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" ToolTip="Click here to Exit from Tab"  Click="btnExit_Click" Width="176" Height="19" />
+        <StatusBar x:Name="stbDisplay" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="614" Margin="0,28.4,-0.4,0" Grid.ColumnSpan="3" Grid.Row="3">
+            <Label x:Name="lblStatus" Content=" " Width="507"/>
+        </StatusBar>
+    </Grid>
+</Window>
